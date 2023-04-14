@@ -17,16 +17,16 @@ const { NotImplementedError } = require("../extensions/index.js");
 function countCats(matrix) {
   //throw new NotImplementedError('Not implemented');
   let count = 0;
-  function openMatrix(arr) {
-    arr.forEach((item) => {
-      if (item === "^^" && item.length === 2) {
+  matrix.forEach((item) => {
+    //console.log(item);
+    for (let i = 0; i < item.length; i++) {
+      if (!item[i]) continue;
+      console.log(item[i].length);
+      if (item[i] === "^^" && item[i].length === 2) {
         count++;
-      } else if (typeof item === "object") {
-        openMatrix(item);
       }
-    });
-  }
-  openMatrix(matrix);
+    }
+  });
   return count;
 }
 
